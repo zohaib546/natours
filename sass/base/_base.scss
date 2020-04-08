@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //this defines what 1rem is
+  //for example: required font-size is 10px and root size is 16px
+  //so [(required / root) * 100] is the formula to set font-size of 10px
+
+  font-size: 62.5%; //1rem = 10px => 10/16 = 62.5
+
+  @include respond(big-desktop) {
+    //1800px
+    font-size: 75%; //1rem = 12px => 12/16 = 75%
+  }
+
+  @include respond(tab-land) {
+    //1200px
+    font-size: 56.2%; //1rem = 9px => 9/16 = 56.2%
+  }
+
+  @include respond(tab-port) {
+    //900px
+    font-size: 50%; //1rem = 8px => 8/16 = 50%
+  }
+
+  @include respond(phone) {
+    //600px
+    font-size: 50%; //1rem = 10px => 10/16 = 62.5%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    //900px
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
